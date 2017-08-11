@@ -33,15 +33,15 @@ public class LinkList {
 			head.next = current;
 			return;
 		}
+		Node preNode = null;
 		while(current != null) {
 			if((int)current.data == index) {
 				Node node = new Node(data);
-				if(current.next != null) {
-					node.next = current.next;
-				}
-				current.next = node;
+				preNode.next = node;
+				node.next = current;
 				return;
 			}
+			preNode = current;
 			current = current.next;
 		}
 	}
@@ -62,7 +62,7 @@ public class LinkList {
 		for(int i = 0; i < 10; i++) {
 			mLinkList.add(i);
 		}
-		mLinkList.insert(9, "first");
+		mLinkList.insert(1, "insert");
 		mLinkList.print(mLinkList.head);
 	}
 }
