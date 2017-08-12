@@ -4,24 +4,24 @@ import java.util.LinkedList;
 
 public class Queue<T> {
 	
-	private LinkedList<T> list = new LinkedList<T>();
+	private LinkedList<T> mList = new LinkedList<T>();
 	
 	private void push(T t) {
-		list.addLast(t);
+		mList.addLast(t);
 	}
 	
 	private void pop() {
-		if(!list.isEmpty()) {
-			list.removeFirst();
+		if(!mList.isEmpty()) {
+			mList.removeFirst();
 		}
 	}
 	
 	private T getHead() {
-		return list.getFirst();
+		return mList.getFirst();
 	}
 	
 	private boolean isEmpty() {
-		return list.isEmpty();
+		return mList.isEmpty();
 	}
 	
 	public static void main(String[] args) {

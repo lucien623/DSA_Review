@@ -4,24 +4,24 @@ import java.util.LinkedList;
 
 public class Stack<T> {
 	private T data;
-	private LinkedList<T> list = new LinkedList<T>();
+	private LinkedList<T> mList = new LinkedList<T>();
 	
 	public void push(T t) {
-		list.addFirst(t);
+		mList.addFirst(t);
 	}
 	
 	public void pop() {
-		if(!list.isEmpty()) {
-			list.removeFirst();
+		if(!mList.isEmpty()) {
+			mList.removeFirst();
 		}
 	}
 	
 	public T getPop() {
-		return list.getFirst();
+		return mList.getFirst();
 	}
 	
 	public boolean isEmpty() {
-		return list.isEmpty();
+		return mList.isEmpty();
 	}
 
 	public static void main(String[] args) {
