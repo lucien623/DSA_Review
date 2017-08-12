@@ -191,28 +191,59 @@ public class LinkList {
 		return start;
 	}
 	
+	/**
+	 * 获取链表的中间节点
+	 * @return
+	 */
+	private Node getMiddleNode() {
+		Node oneStepNode = head;
+		Node twoStepNode = head;
+		//加入小于三个节点则返回第一个节点作为中间节点
+		if(head.next == null || head.next.next == null) {
+			return current;
+		}
+		while(twoStepNode.next != null && twoStepNode.next.next != null) {
+			twoStepNode = twoStepNode.next.next;
+			oneStepNode = oneStepNode.next;
+		}
+		return oneStepNode;
+	}
+
+	
+	
 	public static void main(String[] args) {
 		LinkList mLinkList = new LinkList();
 		for(int i = 0; i < 10; i++) {
 			mLinkList.add(i);
 		}
-		int index = 9;
+		int index = 5;
+		//插入节点
 		mLinkList.insert(index, "insert");
+		//删除节点
 		mLinkList.delete(index);
+		//打印链表
 		mLinkList.print(mLinkList.head);
+		//查找第index个节点
 		Node findNode  = mLinkList.find(index);
 		if(findNode != null) {
 			System.out.println(" data : " + findNode.data);
 		}
+		//打印链表的长度
 		System.out.println(" length : " + mLinkList.getLinkListLength());
+		//反转链表
 		mLinkList.reverseLinkList();
+		//打印反转链表
 		mLinkList.print(mLinkList.reverseHead);
 		System.out.println("");
+		//递归方式反转链表
 		mLinkList.print(mLinkList.reverseLinkListRec(mLinkList.reverseHead));
 		System.out.println("");
+		//获取倒数第index个节点
 		Node reciprocalNode = mLinkList.getReciprocalNode(index);
 		if(reciprocalNode != null) {
 			System.out.println("ReciprocalNode : " + reciprocalNode.data);
 		}
+		//获取链表中间节点
+		System.out.println("middle node data : " + mLinkList.getMiddleNode().data);
 	}
 }
