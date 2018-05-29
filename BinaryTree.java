@@ -30,7 +30,7 @@ public class BinaryTree {
 		
 		nodeF.parent = nodeC;
 		
-		preOrder(nodeA);
+		inOrder(nodeA);
 	}
 	 
 	/**
